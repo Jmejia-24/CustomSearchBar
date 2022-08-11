@@ -42,7 +42,7 @@ struct CustomSearchBar: View {
                     }
                     .padding(.top)
                 }
-                .frame(height: 240)
+                .frame(maxHeight: .infinity, alignment: .top)
             }
         }
         .background(Color("Color"))
