@@ -2,15 +2,18 @@
 //  ContentView.swift
 //  CustomSearchBar
 //
-//  Created by User-C on 8/8/22.
+//  Created by Byron Mejia on 8/8/22.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            Home()
+                .preferredColorScheme(.dark)
+                .navigationTitle("GitHub Users")
+        }
     }
 }
 

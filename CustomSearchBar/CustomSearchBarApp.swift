@@ -2,7 +2,7 @@
 //  CustomSearchBarApp.swift
 //  CustomSearchBar
 //
-//  Created by User-C on 8/8/22.
+//  Created by Byron Mejia on 8/8/22.
 //
 
 import SwiftUI
