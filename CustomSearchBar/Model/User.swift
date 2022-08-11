@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct User: Decodable {
+struct User: Decodable, Hashable {
     var node_id: String
     var login: String
     var avatar_url: String

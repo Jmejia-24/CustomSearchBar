@@ -16,6 +16,18 @@ struct Home: View {
             
             Spacer()
         }
+        .onChange(of: searchData.query) { newData in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                if newData == searchData.query {
+                    if searchData.query != "" {
+                        searchData.page = 1
+                        searchData.find()
+                    } else {
+                        searchData.searchesUsers.removeAll()
+                    }
+                }
+            }
+        }
     }
 }
 

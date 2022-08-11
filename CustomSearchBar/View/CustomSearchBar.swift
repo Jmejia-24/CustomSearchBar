@@ -18,6 +18,7 @@ struct CustomSearchBar: View {
                     .foregroundColor(.gray)
                 
                 TextField("Search", text: $searchData.query)
+                    .textInputAutocapitalization(.none)
             }
             .padding(.vertical, 10)
             .padding(.horizontal)
@@ -25,12 +26,18 @@ struct CustomSearchBar: View {
             if !searchData.searchesUsers.isEmpty {
                 ScrollView(.vertical, showsIndicators: true) {
                     LazyVStack(alignment: .leading, spacing: 12) {
-                        ForEach(searchData.searchesUsers, id: \.node_id) { user in
+                        ForEach(searchData.searchesUsers, id: \.self) { user in
                             VStack(alignment: .leading, spacing: 6) {
                                 Text(user.login)
                                 Divider()
                             }
                             .padding(.horizontal)
+                            .onAppear {
+                                if user.node_id == searchData.searchesUsers.last?.node_id && searchData.page <= 3 {
+                                    searchData.page += 1
+                                    searchData.find()
+                                }
+                            }
                         }
                     }
                     .padding(.top)
